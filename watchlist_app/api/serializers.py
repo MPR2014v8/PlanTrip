@@ -30,6 +30,12 @@ class TripSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Trip
         fields = "__all__"
+        
+class BusinessPlacePictureSerializer(serializers.ModelSerializer):
+
+    class Meta: 
+        model = BusinessPlacePicture
+        fields = "__all__"
 
 # class WatchListSerializer(serializers.ModelSerializer):
     

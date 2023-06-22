@@ -201,6 +201,45 @@ class TripDetailAV(APIView):
         movie.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+##### BusinessPlacePicture
+class BusinessPlacePictureAV(APIView):
+    
+    def get(self, request):
+        movies = BusinessPlacePicture.objects.all()
+        serializer = BusinessPlacePictureSerializer(movies, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = BusinessPlacePictureSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else: 
+            return Response(serializer.errors)
+        
+class BusinessPlacePictureDetailAV(APIView):
+    def get(self, request, pk):
+        try:
+            movie = BusinessPlacePicture.objects.get(pk=pk)
+        except BusinessPlacePicture.DoesNotExist :
+            return Response({'error': 'BusinessPlacePicture not found'}, status=status.HTTP_404_NOT_FOUND)
+        serializer = BusinessPlacePictureSerializer(movie)
+        return Response(serializer.data)
+    
+    def put(self, request, pk):
+        movie = BusinessPlacePicture.objects.get(pk=pk)
+        serializer = BusinessPlacePictureSerializer(movie, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pk):
+        movie = BusinessPlacePicture.objects.get(pk=pk)
+        movie.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
 # @api_view(['GET', 'POST'])
 # def movie_list(request):
     

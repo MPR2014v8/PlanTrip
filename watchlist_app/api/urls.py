@@ -18,4 +18,7 @@ urlpatterns = [
     
     path('Trip/', TripAV.as_view(), name="Trip"),
     path('Trip/<int:pk>', TripDetailAV.as_view(), name="Trip-detail"),
+    
+    path('BusinessPlacePicture/', BusinessPlacePictureAV.as_view(), name="BusinessPlacePicture"),
+    path('BusinessPlacePicture/<int:pk>', BusinessPlacePictureDetailAV.as_view(), name="BusinessPlacePicture-detail"),
 ]
