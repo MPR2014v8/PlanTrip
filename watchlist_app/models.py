@@ -60,3 +60,7 @@ class Trip(models.Model):
     places = models.TextField(default="UNKNOWN")
     permission = models.BooleanField(default=False)
     
+class BusinessPlacePicture(models.Model):
+    
+    id_place = models.ForeignKey(BusinessPlace, related_name="business_place", on_delete=models.CASCADE)
+    link = models.TextField()
