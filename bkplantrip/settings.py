@@ -24,9 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+k-4_o#l-i=-x5b4g6unt=-1crq^)%z6jnk-2sisphx_iavq9z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'plantrip-drf-e456d9f3eaca.herokuapp.com']
+# DEBUG = False
+# ALLOWED_HOSTS = ['localhost', 'plantrip-drf-e456d9f3eaca.herokuapp.com']
+
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 # Application definition

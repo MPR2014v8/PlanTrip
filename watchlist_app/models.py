@@ -25,6 +25,7 @@ class WatchList(models.Model):
     
 class BusinessType(models.Model):
     
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, default="UNKNOWN")
     detail = models.CharField(max_length=200, default="UNKNOWN")
     
@@ -33,6 +34,7 @@ class BusinessType(models.Model):
 
 class BusinessPlace(models.Model):
     
+    id = models.AutoField(primary_key=True)
     id_user = models.CharField(max_length=200, default="UNKNOWN")
     name = models.CharField(max_length=200, default="UNKNOWN")
     detail = models.CharField(max_length=200, default="UNKNOWN")
@@ -54,6 +56,7 @@ class BusinessPlace(models.Model):
 
 class Trip(models.Model):
     
+    id = models.AutoField(primary_key=True)
     id_user = models.CharField(max_length=200, default="UNKNOWN")
     detail = models.CharField(max_length=200, default="UNKNOWN")
     title = models.CharField(max_length=200, default="UNKNOWN")
@@ -71,6 +74,7 @@ class Trip(models.Model):
     
 class BusinessPlacePicture(models.Model):
     
+    id = models.AutoField(primary_key=True)
     id_place = models.ForeignKey(BusinessPlace, related_name="business_place", on_delete=models.CASCADE)
     link = models.TextField()
     
