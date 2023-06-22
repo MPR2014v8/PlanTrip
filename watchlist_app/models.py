@@ -27,6 +27,9 @@ class BusinessType(models.Model):
     
     name = models.CharField(max_length=200, default="UNKNOWN")
     detail = models.CharField(max_length=200, default="UNKNOWN")
+    
+    def __str__(self):
+        return self.name
 
 class BusinessPlace(models.Model):
     
@@ -45,6 +48,9 @@ class BusinessPlace(models.Model):
     pinPhotograph = models.TextField(blank=True, null=True)
     pinCheckIn = models.TextField(blank=True, null=True)
     recomendStatus = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.name
 
 class Trip(models.Model):
     
@@ -60,7 +66,13 @@ class Trip(models.Model):
     places = models.TextField(default="UNKNOWN")
     permission = models.BooleanField(default=False)
     
+    def __str__(self):
+        return self.title
+    
 class BusinessPlacePicture(models.Model):
     
     id_place = models.ForeignKey(BusinessPlace, related_name="business_place", on_delete=models.CASCADE)
     link = models.TextField()
+    
+    def __str__(self):
+        return self.link
